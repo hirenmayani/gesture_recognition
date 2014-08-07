@@ -1,2 +1,2 @@
-gesture_recognization
+Gesture_Recognition
 =====================
