@@ -1,8 +1,8 @@
 package gesture_recognization;
 /*
- * auother: dhruvin mehta
- * detect face
- * external sources required xml file of configuration
+ * Author: Dhruvin Mehta
+ * Detects face
+ * External sources required XML file of configuration
  * */ 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
