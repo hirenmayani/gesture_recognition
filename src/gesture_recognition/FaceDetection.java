@@ -28,7 +28,7 @@ public class FaceDetection {
         
         //Checks whether camera is opened or not
         if(camera.isOpened()) {
-        	while(true) {
+        	//while(true) {
         		//Captures the image from camera
         		if(camera.read(image)) {
         			//Class for detecting face. Provided by OpenCV
@@ -54,4 +54,4 @@ public class FaceDetection {
         	}
         }
     }
-}
+//}
