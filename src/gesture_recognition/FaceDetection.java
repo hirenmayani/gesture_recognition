@@ -62,7 +62,11 @@ public class FaceDetection
         					Core.rectangle(image, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
         							new Scalar(0, 255, 0));
         				}
+        				
+        				//convert to bufferedimage
         				buffimage = new Convert().matToBuff(image);
+        				
+        				//display to Jpanel
         				panel.display(buffimage); 
         			}
         		}

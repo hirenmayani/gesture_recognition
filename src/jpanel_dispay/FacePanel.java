@@ -1,5 +1,8 @@
 package jpanel_dispay;
-
+/*
+ * Author: Dhruvin Mehta
+ * Creates Jframe and initialize it
+ * */
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
