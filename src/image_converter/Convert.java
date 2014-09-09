@@ -1,5 +1,8 @@
 package image_converter;
-
+/*
+ * Author: Dhruvin Mehta
+ * Convert Mat to BufferedImage
+ * */ 
 import java.awt.image.BufferedImage;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
