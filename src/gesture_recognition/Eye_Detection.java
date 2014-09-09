@@ -6,84 +6,57 @@ package gesture_recognition	;
  * External Sources required are XML file 
  */
 
-
-import org.opencv.objdetect.*;
-import org.opencv.highgui.*;
-import org.opencv.core.*;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfRect;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.objdetect.CascadeClassifier;
 
 public class Eye_Detection
 {
-
-	
-	public static void main(String[] args)
-	{ 
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		System.out.println("\nRunning EyeDetection");
-		Eye_Detection.eyeDetector();
-	}
-	
-	//Eye Detection Method
-	
-	public static void eyeDetector()
+	public Mat eyeDetector(Mat image , MatOfRect facedetections)
 	{
+		Mat face;
+		Mat crop=null;
+		Mat eye;
 		// XML Files needed for Detection
 		
-		CascadeClassifier face_cascade = new CascadeClassifier("other/lbpcascade_frontalface.xml");
 		CascadeClassifier eye_cascade= new CascadeClassifier("other/haarcascade_eye_tree_eyeglasses.xml");
 		
-		VideoCapture camera = new VideoCapture(0);
-		
-		Mat image=new Mat();
-		
-		
-		MatOfRect facedetections=new MatOfRect();
 		MatOfRect eyedetections=new MatOfRect();
-		
-		//Face Detection
-		if(camera.isOpened())
-		{
-			if(camera.read(image))
-			{
-				face_cascade.detectMultiScale(image, facedetections);
-				System.out.println("Face Detected");
-			}
-		}
-	    
+			    
 		Rect[] facesArray = facedetections.toArray();
-		
-		  
-		for (Rect rect : facedetections.toArray())
-	    {
-	      	 Core.rectangle(image, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
-					new Scalar(0, 255, 0));
-	    }
 		
 		for (int i = 0; i < facesArray.length; i++)
 	    {     
 	         Mat faceROI = image.submat(facesArray[i]);
 
 	         //-- In each face, detect eyes
-	    
+	         face = image.submat(facedetections.toArray()[i]);
+	         //crop = face.submat(4, (2*face.width())/3, 0, face.height());
 	         eye_cascade.detectMultiScale(faceROI, eyedetections);
 
 	         Rect[] eyesArray = eyedetections.toArray();
 	         
-	         System.out.println("Eyes Detected:" + eyesArray.length);
-	         
 	         for (int j = 0; j < eyesArray.length; j++)
 	         {
-	        	System.out.println("for loop");
+	        	//System.out.println("for loop");
 
-	            Point center1 = new Point(facesArray[i].x + eyesArray[i].x + eyesArray[i].width * 0.5, facesArray[i].y + eyesArray[i].y + eyesArray[i].height * 0.5);
-	            int radius = (int) Math.round((eyesArray[i].width + eyesArray[i].height) * 0.25);
+	            Point center1 = new Point(facesArray[i].x + eyesArray[j].x + eyesArray[j].width * 0.5, facesArray[i].y + eyesArray[j].y + eyesArray[j].height * 0.5);
+	            int radius = (int) Math.round((eyesArray[j].width + eyesArray[j].height) * 0.25);
 	            Core.circle(image, center1, radius, new Scalar(255, 0, 0), 4, 8, 0); 
+	            
+	            //eye = crop.submat(eyedetections.toArray()[j]);
+	                   
+	            //new Eye_Tracker().tracker(eye);
+	         }
+	         if (eyedetections.empty())
+	         {
+	        	 System.out.println("Closed Eye");
 	         }
 	       }
-	    
-		   //-- Show what you got
-		   String window_name="op.png";
-	       Highgui.imwrite(window_name, image);
-	    
+	    return image;
 	}
 }
-
