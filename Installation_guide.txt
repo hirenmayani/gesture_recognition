@@ -1,7 +1,6 @@
 how to use with GIT.
 
 This is installation guide for eclipse on windows.
-
 -> Create openCV library
 -> Add library to project
 -> edit native library

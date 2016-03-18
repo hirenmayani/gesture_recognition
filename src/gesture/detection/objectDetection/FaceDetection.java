@@ -10,13 +10,15 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
 import org.opencv.objdetect.CascadeClassifier;
 
+import gesture.detection.configuration.ConfigPropReader;
+
 public class FaceDetection {
 	int c = 0;
 
 	// Face Detection Method
 	public MatOfRect faceDetector(Mat currentImage) {
 		CascadeClassifier FaceDetection = new CascadeClassifier(
-				"other/lbpcascade_frontalface.xml");
+				ConfigPropReader.getPropValues("face_trainer"));
 		MatOfRect faceDetections = new MatOfRect();
 
 		// This Method detects faces

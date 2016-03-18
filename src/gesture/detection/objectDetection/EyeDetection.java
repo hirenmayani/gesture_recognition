@@ -14,6 +14,8 @@ import org.opencv.core.MatOfRect;
 import org.opencv.core.Rect;
 import org.opencv.objdetect.CascadeClassifier;
 
+import gesture.detection.configuration.ConfigPropReader;
+
 public class EyeDetection {
 	public static Rect rect;
 	
@@ -23,8 +25,7 @@ public class EyeDetection {
 		Rect[] facesArray = detectedFaces.toArray();
 		ArrayList<Rect[]> allEyes = new ArrayList<Rect[]>();
 
-		CascadeClassifier eye_cascade = new CascadeClassifier(
-				"other/haarcascade_eye_tree_eyeglasses.xml");
+		CascadeClassifier eye_cascade = new CascadeClassifier(ConfigPropReader.getPropValues("eye_trainer"));
 		MatOfRect eyedetections = new MatOfRect();
 
 		for (int i = 0; i < facesArray.length; i++) {

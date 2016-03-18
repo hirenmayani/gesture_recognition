@@ -1,7 +1,5 @@
 package jpanel_dispay;
 
-import gesture_recognition.FaceDetection;
-
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
