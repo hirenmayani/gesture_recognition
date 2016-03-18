@@ -1,5 +1,4 @@
-/*
- * Author: Hiren Mayani
+/** @author hirenmayani.com
  * This class contains various eye gesture detection methods.
  */
 

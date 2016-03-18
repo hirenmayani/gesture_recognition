@@ -1,6 +1,6 @@
 package gesture.event.eventSource;
-/*
- * Author: Hiren Mayani
+
+ /** @author hirenmayani.com
  * source of Eye event */
 
 import gesture.detection.enumPojo.EyeGestureType;

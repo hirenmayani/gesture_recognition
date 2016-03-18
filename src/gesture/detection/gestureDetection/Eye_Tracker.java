@@ -11,6 +11,9 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
+/** @author hirenmayani.com
+ * 
+ */
 public class Eye_Tracker 
 {
 	public void tracker(Mat eye)

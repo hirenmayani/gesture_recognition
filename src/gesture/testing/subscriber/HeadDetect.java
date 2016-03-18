@@ -1,5 +1,8 @@
 package gesture.testing.subscriber;
 
+/** @author hirenmayani.com
+ * not part of api, for testing
+ */
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
 
@@ -37,7 +40,7 @@ public class HeadDetect {
 	public void faceDetector() {
 		panel.initialize();
 		FaceGestureDetection head = new FaceGestureDetection();
-		//EyeGestureDetection eye = new EyeGestureDetection();
+		// EyeGestureDetection eye = new EyeGestureDetection();
 		Mat image = new Mat();
 		BufferedImage buffimage = null;
 		VideoCapture camera = new VideoCapture(0); // Opens the camera. 0 for in
@@ -63,7 +66,8 @@ public class HeadDetect {
 						for (Rect rect : faceDetections.toArray()) {
 							Core.rectangle(image, new Point(rect.x, rect.y),
 									new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));
-							//robot.mouseMove((int)(rect.x*1.5), (int)(rect.y*1.5));
+							// robot.mouseMove((int)(rect.x*1.5),
+							// (int)(rect.y*1.5));
 						}
 
 						head.feedData(faceDetections);

@@ -1,5 +1,4 @@
-/*
- * Author: Hiren Mayani
+/** @author hirenmayani.com
  * Enumeration of possible eye gestures.
 */
 package gesture.detection.enumPojo;

@@ -6,6 +6,10 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/** @author hirenmayani.com
+ * not part of api, for testing
+ * to display camera op to user
+ */
 public class FacePanel extends JPanel
 {
 	JFrame frame;

@@ -1,5 +1,4 @@
-/*
- * Author: Hiren Mayani
+/** @author hirenmayani.com
  * this class is controller to detect gesture.
  * all methods are call from here and if gesture detects then fire corresponding event. */
 

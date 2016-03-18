@@ -1,6 +1,5 @@
 package gesture.event.gestureEventsListener;
-/*
- * Author: Hiren Mayani
+/** @author hirenmayani.com
  * listener for face gestures
  *to add new gesture entry is required here.
  * */

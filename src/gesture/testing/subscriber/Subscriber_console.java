@@ -1,6 +1,6 @@
 package gesture.testing.subscriber;
-/*
- * Author: Hiren Mayani
+
+/** @author hirenmayani.com
  * this class is not part of API.
  * this is created for testing purpose.
  * inner class is used here.

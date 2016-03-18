@@ -19,6 +19,9 @@ import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 
+/** @author hirenmayani.com
+ * not part of api, for testing
+ */
 public class Testing {
 	private static Rect[] detectedFacesArray;
 	private static Mat currentImage;

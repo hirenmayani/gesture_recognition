@@ -3,13 +3,15 @@ package gesture.testing.jpanel_dispay;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+/** @author hirenmayani.com
+ * 
+ * not part of API but for testsing
+ *
+ */
 public class Face_Panel extends JPanel
 {
 	JFrame frame;

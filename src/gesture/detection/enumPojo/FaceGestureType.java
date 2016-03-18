@@ -1,5 +1,4 @@
-/*
- * Author: Hiren Mayani
+/** @author hirenmayani.com
  * Enumeration of possible face gestures.
 */
 package gesture.detection.enumPojo;

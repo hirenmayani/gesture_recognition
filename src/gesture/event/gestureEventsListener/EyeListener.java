@@ -2,8 +2,7 @@ package gesture.event.gestureEventsListener;
 
 import gesture.event.gestureEvents.EyeEvent;
 
-/*
- * Author: Hiren Mayani
+/** @author hirenmayani.com
  * listener for Eye gestures
  *to add new gesture entry is required here.
  * */

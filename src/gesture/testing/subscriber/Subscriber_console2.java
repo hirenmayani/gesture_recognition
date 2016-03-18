@@ -4,6 +4,9 @@ import gesture.event.eventSource.Face;
 import gesture.event.gestureEvents.FaceEvent;
 import gesture.event.gestureEventsListener.FaceListener;
 
+/** @author hirenmayani.com
+ * not part of api, for testing
+ */
 public class Subscriber_console2 implements FaceListener{
 
 	public static void main(String[] args)

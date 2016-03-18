@@ -1,5 +1,8 @@
 package gesture.testing.jpanel_dispay;
 
+/** @author hirenmayani.com
+ * 
+ */
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 

@@ -1,5 +1,8 @@
 package gesture.event.eventSource;
 
+/** @author hirenmayani.com
+ * 
+ */
 import gesture.detection.configuration.InitConfig;
 import gesture.event.gestureEventsListener.EyeListener;
 import gesture.event.gestureEventsListener.FaceListener;

@@ -1,7 +1,7 @@
 package gesture.event.eventSource;
-/*
- * Author: Hiren Mayani
- * source of Face event */
+/** @author hirenmayani.com
+ * source of Face event
+ *  */
 
 
 import gesture.detection.enumPojo.FaceGestureType;
