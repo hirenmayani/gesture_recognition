@@ -4,7 +4,7 @@
 
 1.	INRODUCTION
 
-	Ultimate goal of technology is to make life easy of human being.  It is noted that moving head and eyes are more convenient than moving hand. So, goal of this API is to control computer applications using possible gesture of face and eyes. More importantly this API can be very useful to disabled person. Disabled person who can’t control computer using hands then they can control computer using head.
+	TThe goal of technology is to make human lives easy.  It is observed that moving head and eyes are more convenient than moving hands and other parts of body. So, goal of this API is to control computer applications using possible gesture of face and eyes. More importantly this API can be very useful to disabled person. Disabled person who can’t control computer using hands then they can control computer using head.
 	This API is designed to interact with computer using gesture. Gestures are detected from continuous input taken from camera. Based on continuous sequence of frame pattern can be emerged. This pattern decides which gesture occured. When any gesture occurs corresponding event will fire. End user of this API is technical person like software developer or game developer can include this library on their code to use this API.
 
 Tools/Technologies used
