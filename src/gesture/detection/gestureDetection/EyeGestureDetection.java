@@ -69,7 +69,7 @@ public class EyeGestureDetection {
 					leftFrame = frame;
 					leftFlag = false;
 				} else {
-					if ((frame - leftFrame) > 15) {
+					if ((frame - leftFrame) > 3) {
 						leftFlag = true;
 						return true;
 					}
@@ -99,7 +99,7 @@ public class EyeGestureDetection {
 					rightFrame = frame;
 					rightFlag = false;
 				} else {
-					if ((frame - rightFrame) > 15) {
+					if ((frame - rightFrame) > 3) {
 						rightFlag = true;
 						return true;
 					}
@@ -127,7 +127,7 @@ public class EyeGestureDetection {
 				// reset variables and return true
 				open2 = true;
 				count2 = 0;
-				if (!eyeSleep() && (frame - twoFrame) < 30 && eyes.toArray().length == 2) {
+				if (!eyeSleep() && (frame - twoFrame) < 10 && eyes.toArray().length == 2) {
 					count3 = 0;
 					count4 = 0;
 					return true;
@@ -202,7 +202,7 @@ public class EyeGestureDetection {
 			} else {
 				// if difference of current frame and intial frame > 25 then eye
 				// is closed
-				if ((frame - iframe) > 15) {
+				if ((frame - iframe) > 5) {
 					// reset the variables and return true
 					flag = true;
 					return true;

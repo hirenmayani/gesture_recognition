@@ -83,12 +83,11 @@ public class InitConfig {
 					if (isFaceRunning) {
 						detectFaceGesture();
 					}
-					if (isEyeRunning) {
-						detectedEyes = eyeDetector.eyeDetector(currentImage);
-						largestEye = eyeDetector
-								.largestEyeDetector(currentImage);
-						detectEyeGesture();
-					}
+//					if (isEyeRunning) {
+//						detectedEyes = eyeDetector.eyeDetector(currentImage);
+//						largestEye = eyeDetector.largestEyeDetector(currentImage);
+//						detectEyeGesture();
+//					}
 				}
 			}
 			System.out.println("destroyed...");

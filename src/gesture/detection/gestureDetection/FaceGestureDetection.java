@@ -9,8 +9,8 @@ import org.opencv.core.MatOfRect;
 import org.opencv.core.Rect;
 
 public class FaceGestureDetection {
-	private int NO = 10;
-	private int NO2 = 20;
+	private int NO = 5;
+	private int NO2 = 5;
 	static Rect rect;
 
 	// difference of mid points of initial and current frames
@@ -159,17 +159,18 @@ public class FaceGestureDetection {
 
 	public boolean headRightMove() {
 		// calculateMidPoint();
-		if (difference_mid_x > -25 && difference_mid_x < 25) {
-			if ((frame - current_frame_right) > NO && right && left_after_right) {
+		if (difference_mid_x > -25 && difference_mid_x < 50) {
+			if ((frame - current_frame_right) > NO && right) {
 				left_after_right = false;
 				right = false;
 				return true;
 			}
-		} else if (difference_mid_x > 25) {
+		} else if (difference_mid_x >= 50) {
 			current_frame_right = frame;
 			right = true;
 			left_after_right = false;
 		} else {
+			current_frame_right = frame;
 			if ((frame - current_frame_right) < NO2)
 				left_after_right = true;
 			else
@@ -180,17 +181,18 @@ public class FaceGestureDetection {
 
 	public boolean headLeftMove() {
 		// calculateMidPoint();
-		if (difference_mid_x > -25 && difference_mid_x < 25) {
-			if ((frame - current_frame_left) > NO && left && right_after_left) {
+		if (difference_mid_x > -50 && difference_mid_x < 25) {
+			if ((frame - current_frame_left) > NO && left ) {
 				right_after_left = false;
 				left = false;
 				return true;
 			}
-		} else if (difference_mid_x < -25) {
+		} else if (difference_mid_x <= -50) {
 			current_frame_left = frame;
 			left = true;
 			right_after_left = false;
 		} else {
+			current_frame_right = frame;
 			if ((frame - current_frame_left) < NO2)
 				right_after_left = true;
 			else
@@ -201,17 +203,18 @@ public class FaceGestureDetection {
 
 	public boolean headUpMove() {
 		// calculateMidPoint();
-		if (difference_mid_y > -25 && difference_mid_y < 25) {
-			if ((frame - current_frame_up) > NO && up && down_after_up) {
+		if (difference_mid_y > -25 && difference_mid_y <= 50) {
+			if ((frame - current_frame_up) > NO && up) {
 				down_after_up = false;
 				up = false;
 				return true;
 			}
-		} else if (difference_mid_y > 25) {
+		} else if (difference_mid_y >= 50) {
 			current_frame_up = frame;
 			up = true;
 			down_after_up = false;
 		} else {
+			current_frame_right = frame;
 			if ((frame - current_frame_up) < NO2)
 				down_after_up = true;
 			else
@@ -220,26 +223,32 @@ public class FaceGestureDetection {
 		return false;
 	}
 
+	public boolean headDownMove1()
+	{
+		return false;
+	}
+	
 	public boolean headDownMove() {
 		// faces = detected faces
 		// frame = current frame no
 		// calculateMidPoint(); //calculate mid points
-		if (difference_mid_y > -25 && difference_mid_y < 25) {
+		if (difference_mid_y > -50 && difference_mid_y < 25) {
 			// to complete move face must be ideal for more than 10 frames
 			// it must have gone down so "down" must be true
 			// it must have gone up after being down
-			if ((frame - current_frame_down) > NO && down && up_after_down) {
+			if ((frame - current_frame_down) > NO && down ) {
 				// reset the variables used and return true;
 				up_after_down = false;
 				down = false;
 				return true;
 			}
-		} else if (difference_mid_y < -25) {
+		} else if (difference_mid_y <= -50) {
 			// face is down respect to previous frame
 			current_frame_down = frame; // save current frame
 			down = true; // face is down
 			up_after_down = false; // face is not up
 		} else {
+			current_frame_right = frame;
 			// face is up respect to previous frame
 			if ((frame - current_frame_down) < NO2)
 				up_after_down = true; // face is again up after down
@@ -269,7 +278,7 @@ public class FaceGestureDetection {
 		}
 		// if not first then for every 10th frame calculate difference of mid
 		// points
-		else if ((frame % 10) == 0) {
+		else if ((frame % 2) == 0) {
 			current_x_point = rect.x + rect.width / 2; // Set mid point of
 														// current x axis of
 														// face

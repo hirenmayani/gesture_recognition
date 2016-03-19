@@ -64,13 +64,22 @@ public class EyeDetection {
 				rect = rect1;
 		}
 
-		CascadeClassifier eye_cascade = new CascadeClassifier(
-				"other/haarcascade_eye_tree_eyeglasses.xml");
+		CascadeClassifier eye_cascade = new CascadeClassifier(ConfigPropReader.getInstance().getPropValues("eye_trainer"));
 		MatOfRect eyedetections = new MatOfRect();
 
 		Mat faceROI = currentImage.submat(rect);
 
 		// -- In each face, detect eyes
+		eye_cascade.detectMultiScale(faceROI, eyedetections);
+		return eyedetections;
+	}
+	
+	public MatOfRect detectEyesFromFace(Mat currentImage, Rect rect)
+	{
+		CascadeClassifier eye_cascade = new CascadeClassifier(ConfigPropReader.getInstance().getPropValues("eye_trainer"));
+		MatOfRect eyedetections = new MatOfRect();
+		Mat faceROI = currentImage.submat(rect);
+
 		eye_cascade.detectMultiScale(faceROI, eyedetections);
 		return eyedetections;
 	}

@@ -1,5 +1,9 @@
 package gesture.detection.objectDetection;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /*
  * Author: Dhruvin Mehta
  * Detects face
@@ -34,13 +38,26 @@ public class FaceDetection {
 				for (int i = 1; i < faces.length; i++) {
 					if ((faces[i].height + faces[i].width) > (faces[maxIndex].height + faces[maxIndex].width)) {
 						maxIndex = i;
-						System.out.println("FaceDetection : max index set to " + i);
+						//System.out.println("FaceDetection : max index set to " + i);
 					}
 				}
 				faceDetections = null;
 				return new MatOfRect(faces[maxIndex]);
 			}
 		}
+
+		List<Rect> actualfaces = new ArrayList<Rect>();
+		for (int i = 0; i < faces.length; i++) {
+			if ((faces[i].height + faces[i].width) > Integer
+					.parseInt(ConfigPropReader.getInstance().getPropValues("min_face_size"))) {
+				actualfaces.add(faces[i]);
+			} else {
+				//System.out.println("ignore face with size " + (faces[i].height + faces[i].width));
+			}
+		}
+
+		faceDetections = new MatOfRect();
+		faceDetections.fromList(actualfaces);
 
 		/*
 		 * if (!faceDetections.empty())
