@@ -25,7 +25,7 @@ public class EyeDetection {
 		Rect[] facesArray = detectedFaces.toArray();
 		ArrayList<Rect[]> allEyes = new ArrayList<Rect[]>();
 
-		CascadeClassifier eye_cascade = new CascadeClassifier(ConfigPropReader.getPropValues("eye_trainer"));
+		CascadeClassifier eye_cascade = new CascadeClassifier(ConfigPropReader.getInstance().getPropValues("eye_trainer"));
 		MatOfRect eyedetections = new MatOfRect();
 
 		for (int i = 0; i < facesArray.length; i++) {

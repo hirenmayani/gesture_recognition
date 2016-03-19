@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class ConfigPropReader {
 	String result = "";
-	static InputStream inputStream;
+	InputStream inputStream;
 	static Properties prop;
 	static String propFileName = null;
 
@@ -24,6 +24,7 @@ public class ConfigPropReader {
 	   public static ConfigPropReader getInstance() {
 	      if(instance == null) {
 	         instance = new ConfigPropReader();
+	         init(null);
 	      }
 	      return instance;
 	   }
@@ -40,11 +41,11 @@ public class ConfigPropReader {
 
 			prop.load(inputStream);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Exception while loading config file");
 		}
 	}
 
-	public static void killit() {
+	public void killit() {
 		try {
 			inputStream.close();
 		} catch (IOException e) {
@@ -52,7 +53,7 @@ public class ConfigPropReader {
 		}
 	}
 
-	public static String getPropValues(String key) {
+	public String getPropValues(String key) {
 		try {
 		return prop.getProperty(key);
 		} catch (Exception e) {

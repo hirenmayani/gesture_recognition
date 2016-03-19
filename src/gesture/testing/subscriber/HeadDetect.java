@@ -24,6 +24,7 @@ import org.opencv.objdetect.CascadeClassifier;
 
 import gesture.detection.gestureDetection.FaceGestureDetection;
 import gesture.detection.imageProcessing.Convert;
+import gesture.detection.objectDetection.FaceDetection;
 import gesture.testing.jpanel_dispay.Face_Panel;
 
 public class HeadDetect {
@@ -54,14 +55,15 @@ public class HeadDetect {
 				camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, panel.width);
 				camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, panel.height);
 				while (true) {
-					Thread.sleep(100);
+					//Thread.sleep(100);
 					if (camera.read(image)) // Captures the image from camera
 					{
 						// image = new Image_enhancement().histo_equ(image);
-						CascadeClassifier FaceDetection = new CascadeClassifier("other/lbpcascade_frontalface.xml");
-						MatOfRect faceDetections = new MatOfRect();
+						//CascadeClassifier FaceDetection = new CascadeClassifier("other/lbpcascade_frontalface.xml");
+//						MatOfRect faceDetections = new MatOfRect();
+						MatOfRect faceDetections = (new FaceDetection()).faceDetector(image);
 
-						FaceDetection.detectMultiScale(image, faceDetections);
+						//FaceDetection.detectMultiScale(image, faceDetections);
 
 						for (Rect rect : faceDetections.toArray()) {
 							Core.rectangle(image, new Point(rect.x, rect.y),
@@ -70,20 +72,20 @@ public class HeadDetect {
 							// (int)(rect.y*1.5));
 						}
 
-						head.feedData(faceDetections);
-						boolean ans = head.headDownMove();
-						if (ans)
-							System.out.println("DOWN");
-						boolean ans1 = head.headRightMove();
-						if (ans1)
-							System.out.println("Right");
-						boolean ans2 = head.headUpMove();
-						if (ans2)
-							System.out.println("Up");
-
-						ans = head.headLeftMove();
-						if (ans)
-							System.out.println("LEFT");
+//						head.feedData(faceDetections);
+//						boolean ans = head.headDownMove();
+//						if (ans)
+//							System.out.println("DOWN");
+//						boolean ans1 = head.headRightMove();
+//						if (ans1)
+//							System.out.println("Right");
+//						boolean ans2 = head.headUpMove();
+//						if (ans2)
+//							System.out.println("Up");
+//
+//						ans = head.headLeftMove();
+//						if (ans)
+//							System.out.println("LEFT");
 					}
 
 					buffimage = new Convert().matToBuff(image);

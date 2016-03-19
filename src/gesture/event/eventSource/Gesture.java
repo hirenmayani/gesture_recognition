@@ -18,6 +18,7 @@ public class Gesture implements Runnable{
 	{
 		t = new Thread(this, "Gesture Detection Thread");
 	}
+	
 	public boolean addFaceListener(FaceListener listener) {
 		if (!isInitFace) {
 			face = new Face();
