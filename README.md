@@ -1,6 +1,6 @@
  Abstract
  
-	This is a library to interact with computer using gesture of face and eyes. Generally computer application takes input from keyboards & mouse to control. But using this library application can get controlling input using camera. End users of this library may be software developer or game developer. They can include this library in their code and can use provided methods to generate event when any facial gesture occurs.
+	This is a library to interact with computer using gesture of face, eyes and hands. Generally computer applications take input from keyboards & mouse to control. Application developer can use this library to take controlling input using camera. End users of this library can be software developer or game developer. They can include this library in their code and can use provided methods to generate event when any facial gesture occurs.
 
 1.	INRODUCTION
 
